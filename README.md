@@ -1,6 +1,6 @@
 # Type issue reproduced
 
-Issue showing invalid types in `jest-environment-puppeteer@8.0.5`
+Issue showing invalid types in `jest-environment-puppeteer@8.0.5` issue https://github.com/argos-ci/jest-puppeteer/issues/545
 
 1. Install packages
 
