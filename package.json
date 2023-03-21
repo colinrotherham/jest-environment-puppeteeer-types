@@ -1,0 +1,14 @@
+{
+  "name": "jest-environment-puppeteeer-types",
+  "version": "1.0.0",
+  "description": "Type issue reproduced",
+  "main": "jest-puppeteer.config.js",
+  "license": "MIT",
+  "dependencies": {
+    "jest-environment-puppeteer": "^8.0.5",
+    "puppeteer": "^19.7.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
