@@ -1,6 +1,10 @@
 {
-  "files": ["jest-puppeteer.config.ts"],
+  "include": ["./src/**/*"],
   "compilerOptions": {
-    "module": "NodeNext"
+    "allowJs": true,
+    "checkJs": true,
+    "module": "NodeNext",
+    "outDir": "./dist",
+    "rootDir": "./src"
   }
 }
