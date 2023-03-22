@@ -1,6 +1,9 @@
 # Type issue reproduced
 
-Issue showing invalid types in `jest-environment-puppeteer@8.0.5` issue https://github.com/argos-ci/jest-puppeteer/issues/545
+Issues showing invalid types in `jest-environment-puppeteer@8.0.5`
+
+* https://github.com/argos-ci/jest-puppeteer/issues/545
+* https://github.com/argos-ci/jest-puppeteer/issues/546
 
 1. Install packages
 
@@ -41,7 +44,21 @@ node_modules/jest-environment-puppeteer/dist/index.d.ts:62:31 - error TS2339: Pr
 
 62     var jestPuppeteer: Global["jestPuppeteer"];
                                  ~~~~~~~~~~~~~~~
+```
 
+```console
+src/custom-environment.js:3:33 - error TS2507: Type 'typeof import("/path/to/project/node_modules/jest-environment-puppeteer/dist/index")' is not a constructor function type.
 
-Found 5 errors.
+3 class CustomEnvironment extends PuppeteerEnvironment {
+                                  ~~~~~~~~~~~~~~~~~~~~
+
+src/custom-environment.js:8:22 - error TS2339: Property 'global' does not exist on type 'CustomEnvironment'.
+
+8     console.log(this.global)
+                       ~~~~~~
+
+src/custom-environment.js:9:22 - error TS2339: Property 'context' does not exist on type 'CustomEnvironment'.
+
+9     console.log(this.context)
+                       ~~~~~~~
 ```
