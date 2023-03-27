@@ -1,6 +1,6 @@
-const PuppeteerEnvironment = require("jest-environment-puppeteer");
+const { TestEnvironment } = require("jest-environment-puppeteer");
 
-class CustomEnvironment extends PuppeteerEnvironment {
+class CustomEnvironment extends TestEnvironment {
   async setup() {
     await super.setup();
 

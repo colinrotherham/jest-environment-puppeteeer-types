@@ -5,8 +5,8 @@
   "main": "jest-puppeteer.config.js",
   "license": "MIT",
   "dependencies": {
-    "jest-environment-puppeteer": "^8.0.5",
-    "puppeteer": "^19.7.5"
+    "jest-environment-puppeteer": "^8.0.6",
+    "puppeteer": "^19.8.0"
   },
   "devDependencies": {
     "typescript": "^5.0.2"
