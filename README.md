@@ -1,9 +1,6 @@
 # Type issue reproduced
 
-Issues showing invalid types in `jest-environment-puppeteer@8.0.5`
-
-* https://github.com/argos-ci/jest-puppeteer/issues/545
-* https://github.com/argos-ci/jest-puppeteer/issues/546
+Issues showing invalid types in `jest-environment-puppeteer@8.0.6`
 
 1. Install packages
 
@@ -20,45 +17,36 @@ npx tsc --build
 ## Errors
 
 ```console
-node_modules/jest-environment-puppeteer/dist/index.d.ts:58:25 - error TS2339: Property 'browser' does not exist on type 'Global'.
+src/custom-environment.js:16:26 - error TS2339: Property 'exitOnPageError' does not exist on type 'unknown'.
 
-58     var browser: Global["browser"];
-                           ~~~~~~~~~
+16     if (!puppeteerConfig.exitOnPageError) {
+                            ~~~~~~~~~~~~~~~
 
-node_modules/jest-environment-puppeteer/dist/index.d.ts:59:22 - error TS2339: Property 'page' does not exist on type 'Global'.
+src/custom-environment.js:17:12 - error TS2339: Property 'on' does not exist on type 'unknown'.
 
-59     var page: Global["page"];
-                        ~~~~~~
+17       page.on('pageerror', (error) => {
+              ~~
 
-node_modules/jest-environment-puppeteer/dist/index.d.ts:60:25 - error TS2339: Property 'context' does not exist on type 'Global'.
+src/custom-environment.js:23:17 - error TS2339: Property 'goto' does not exist on type 'unknown'.
 
-60     var context: Global["context"];
-                           ~~~~~~~~~
+23     await page?.goto('https://www.example.com/');
+                   ~~~~
 
-node_modules/jest-environment-puppeteer/dist/index.d.ts:61:33 - error TS2339: Property 'puppeteerConfig' does not exist on type 'Global'.
+src/custom-environment.js:26:20 - error TS2339: Property 'waitForTarget' does not exist on type 'unknown'.
 
-61     var puppeteerConfig: Global["puppeteerConfig"];
-                                   ~~~~~~~~~~~~~~~~~
+26     await browser?.waitForTarget(
+                      ~~~~~~~~~~~~~
 
-node_modules/jest-environment-puppeteer/dist/index.d.ts:62:31 - error TS2339: Property 'jestPuppeteer' does not exist on type 'Global'.
+src/custom-environment.js:31:17 - error TS2339: Property 'isIncognito' does not exist on type 'unknown'.
 
-62     var jestPuppeteer: Global["jestPuppeteer"];
-                                 ~~~~~~~~~~~~~~~
-```
+31     if (context.isIncognito()) {
+                   ~~~~~~~~~~~
 
-```console
-src/custom-environment.js:3:33 - error TS2507: Type 'typeof import("/path/to/project/node_modules/jest-environment-puppeteer/dist/index")' is not a constructor function type.
+src/custom-environment.js:32:27 - error TS2339: Property 'debug' does not exist on type 'unknown'.
 
-3 class CustomEnvironment extends PuppeteerEnvironment {
-                                  ~~~~~~~~~~~~~~~~~~~~
+32       await jestPuppeteer.debug()
+                             ~~~~~
 
-src/custom-environment.js:8:22 - error TS2339: Property 'global' does not exist on type 'CustomEnvironment'.
 
-8     console.log(this.global)
-                       ~~~~~~
-
-src/custom-environment.js:9:22 - error TS2339: Property 'context' does not exist on type 'CustomEnvironment'.
-
-9     console.log(this.context)
-                       ~~~~~~~
+Found 6 errors.
 ```
